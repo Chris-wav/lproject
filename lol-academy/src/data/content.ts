@@ -5,6 +5,8 @@ export const categories: Category[] = [
     id: "map-awareness",
     title: "Map Awareness",
     icon: "🗺️",
+    description:
+      "Learn how to read the minimap, track enemy positions, and use vision control to gain a strategic advantage over your opponents.",
     lessons: [
       {
         id: "vision-control",
@@ -139,6 +141,8 @@ export const categories: Category[] = [
     id: "decision-making",
     title: "Decision Making",
     icon: "⚔️",
+    description:
+      "Master the art of in-game decision making — from objective priority to knowing when to fight or disengage.",
     lessons: [
       {
         id: "objective-priority",
@@ -267,6 +271,8 @@ export const categories: Category[] = [
     id: "champion-mechanics",
     title: "Champion Mechanics",
     icon: "🎯",
+    description:
+      "Improve your mechanical skills by learning ability combos, resource management, and how to maximize your champion's potential.",
     lessons: [
       {
         id: "ability-combos",

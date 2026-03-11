@@ -25,4 +25,5 @@ export interface Category {
   title: string;
   lessons: Lesson[];
   icon: string;
+  description: string;
 }
