@@ -5,6 +5,7 @@ export interface Option {
 
 export interface Question {
   id: string;
+  type: string;
   scenario: string;
   options: Option[];
   correctAnswer: string;

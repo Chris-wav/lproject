@@ -9,30 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ResultsRouteImport } from './routes/results'
-import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as CategoryRouteImport } from './routes/category'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResultsIdRouteImport } from './routes/results.$id'
+import { Route as QuizIdRouteImport } from './routes/quiz.$id'
+import { Route as CategoryIdRouteImport } from './routes/category.$id'
 
-const ResultsRoute = ResultsRouteImport.update({
-  id: '/results',
-  path: '/results',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const QuizRoute = QuizRouteImport.update({
-  id: '/quiz',
-  path: '/quiz',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CategoryRoute = CategoryRouteImport.update({
-  id: '/category',
-  path: '/category',
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -40,61 +31,85 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResultsIdRoute = ResultsIdRouteImport.update({
+  id: '/results/$id',
+  path: '/results/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizIdRoute = QuizIdRouteImport.update({
+  id: '/quiz/$id',
+  path: '/quiz/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoryIdRoute = CategoryIdRouteImport.update({
+  id: '/category/$id',
+  path: '/category/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/category': typeof CategoryRoute
+  '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
-  '/quiz': typeof QuizRoute
-  '/results': typeof ResultsRoute
+  '/category/$id': typeof CategoryIdRoute
+  '/quiz/$id': typeof QuizIdRoute
+  '/results/$id': typeof ResultsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/category': typeof CategoryRoute
+  '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
-  '/quiz': typeof QuizRoute
-  '/results': typeof ResultsRoute
+  '/category/$id': typeof CategoryIdRoute
+  '/quiz/$id': typeof QuizIdRoute
+  '/results/$id': typeof ResultsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/category': typeof CategoryRoute
+  '/home': typeof HomeRoute
   '/profile': typeof ProfileRoute
-  '/quiz': typeof QuizRoute
-  '/results': typeof ResultsRoute
+  '/category/$id': typeof CategoryIdRoute
+  '/quiz/$id': typeof QuizIdRoute
+  '/results/$id': typeof ResultsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/category' | '/profile' | '/quiz' | '/results'
+  fullPaths:
+    | '/'
+    | '/home'
+    | '/profile'
+    | '/category/$id'
+    | '/quiz/$id'
+    | '/results/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/category' | '/profile' | '/quiz' | '/results'
-  id: '__root__' | '/' | '/category' | '/profile' | '/quiz' | '/results'
+  to:
+    | '/'
+    | '/home'
+    | '/profile'
+    | '/category/$id'
+    | '/quiz/$id'
+    | '/results/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/home'
+    | '/profile'
+    | '/category/$id'
+    | '/quiz/$id'
+    | '/results/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CategoryRoute: typeof CategoryRoute
+  HomeRoute: typeof HomeRoute
   ProfileRoute: typeof ProfileRoute
-  QuizRoute: typeof QuizRoute
-  ResultsRoute: typeof ResultsRoute
+  CategoryIdRoute: typeof CategoryIdRoute
+  QuizIdRoute: typeof QuizIdRoute
+  ResultsIdRoute: typeof ResultsIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/results': {
-      id: '/results'
-      path: '/results'
-      fullPath: '/results'
-      preLoaderRoute: typeof ResultsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/quiz': {
-      id: '/quiz'
-      path: '/quiz'
-      fullPath: '/quiz'
-      preLoaderRoute: typeof QuizRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -102,11 +117,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/category': {
-      id: '/category'
-      path: '/category'
-      fullPath: '/category'
-      preLoaderRoute: typeof CategoryRouteImport
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -116,15 +131,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/results/$id': {
+      id: '/results/$id'
+      path: '/results/$id'
+      fullPath: '/results/$id'
+      preLoaderRoute: typeof ResultsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz/$id': {
+      id: '/quiz/$id'
+      path: '/quiz/$id'
+      fullPath: '/quiz/$id'
+      preLoaderRoute: typeof QuizIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/category/$id': {
+      id: '/category/$id'
+      path: '/category/$id'
+      fullPath: '/category/$id'
+      preLoaderRoute: typeof CategoryIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CategoryRoute: CategoryRoute,
+  HomeRoute: HomeRoute,
   ProfileRoute: ProfileRoute,
-  QuizRoute: QuizRoute,
-  ResultsRoute: ResultsRoute,
+  CategoryIdRoute: CategoryIdRoute,
+  QuizIdRoute: QuizIdRoute,
+  ResultsIdRoute: ResultsIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,0 +1,30 @@
+<svg width="80" height="80" viewBox="0 0 16 16" style="image-rendering:pixelated; width:80px; height:80px;">
+          <!-- hat -->
+          <rect x="4" y="0" width="8" height="1" fill="#C84B31"></rect>
+          <rect x="3" y="1" width="10" height="1" fill="#C84B31"></rect>
+          <rect x="5" y="2" width="6" height="1" fill="#E85D35"></rect>
+          <!-- head -->
+          <rect x="3" y="3" width="10" height="6" fill="#F5CFA0"></rect>
+          <!-- eyes -->
+          <rect x="4" y="5" width="3" height="2" fill="#1A1A2E"></rect>
+          <rect x="9" y="5" width="3" height="2" fill="#1A1A2E"></rect>
+          <rect x="5" y="5" width="1" height="1" fill="white"></rect>
+          <rect x="10" y="5" width="1" height="1" fill="white"></rect>
+          <!-- nose/mouth -->
+          <rect x="7" y="7" width="2" height="1" fill="#D4A574"></rect>
+          <!-- ears -->
+          <rect x="1" y="4" width="2" height="2" fill="#F5CFA0"></rect>
+          <rect x="13" y="4" width="2" height="2" fill="#F5CFA0"></rect>
+          <!-- ear fluff -->
+          <rect x="0" y="3" width="2" height="2" fill="#F0E0C0"></rect>
+          <rect x="14" y="3" width="2" height="2" fill="#F0E0C0"></rect>
+          <!-- body -->
+          <rect x="4" y="9" width="8" height="5" fill="#4A7C59"></rect>
+          <rect x="5" y="10" width="6" height="3" fill="#5A9C6A"></rect>
+          <!-- arms -->
+          <rect x="2" y="9" width="2" height="4" fill="#4A7C59"></rect>
+          <rect x="12" y="9" width="2" height="4" fill="#4A7C59"></rect>
+          <!-- legs -->
+          <rect x="4" y="14" width="3" height="2" fill="#3A5C45"></rect>
+          <rect x="9" y="14" width="3" height="2" fill="#3A5C45"></rect>
+        </svg>
