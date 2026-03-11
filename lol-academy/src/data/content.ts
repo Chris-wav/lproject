@@ -135,6 +135,120 @@ export const categories: Category[] = [
           },
         ],
       },
+      {
+        id: "wave-tracking",
+        title: "Wave Tracking",
+        description:
+          "Learn how minion waves affect rotations, roams, and map pressure.",
+        difficulty: "beginner",
+        questions: [
+          {
+            id: "wt-q1",
+            type: "multiple-choice",
+            scenario:
+              "The enemy mid laner leaves lane to roam bot, but their wave is slow pushing toward your tower. What is the best response?",
+            options: [
+              { id: "a", text: "Follow instantly without looking at the wave" },
+              {
+                id: "b",
+                text: "Stay, collect the wave, and ping the roam",
+              },
+              { id: "c", text: "Recall immediately" },
+              { id: "d", text: "Hide in the river bush and wait" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "If the wave is coming toward you, the enemy loses farm and experience by roaming. Punish the roam by collecting the wave and warning your team.",
+          },
+          {
+            id: "wt-q2",
+            type: "multiple-choice",
+            scenario:
+              "You crash a large minion wave into the enemy mid tower. The enemy mid laner must stay to farm it. What can you do next?",
+            options: [
+              { id: "a", text: "Look for a roam or help with river vision" },
+              { id: "b", text: "Stand still in lane and wait" },
+              { id: "c", text: "Use all abilities on the next wave instantly" },
+              { id: "d", text: "Walk into the enemy base" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "A crashed wave creates a timing window. While the enemy clears under tower, you can roam, ward, or help secure river control.",
+          },
+          {
+            id: "wt-q3",
+            type: "spot-mistake",
+            scenario:
+              "Your bot lane leaves lane to help with a river skirmish while a huge enemy wave is about to crash into their tower. The fight ends with no kills, but they lose two full waves and turret plates. What was the mistake?",
+            options: [
+              {
+                id: "a",
+                text: "They rotated at the wrong time and gave up too much farm",
+              },
+              { id: "b", text: "They should have used more summoner spells" },
+              { id: "c", text: "They needed more attack speed" },
+              { id: "d", text: "They should have fought under enemy tower" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Wave state matters. Leaving a massive wave without gaining anything puts your lane behind in gold, XP, and pressure.",
+          },
+        ],
+      },
+      {
+        id: "jungle-tracking",
+        title: "Jungle Tracking",
+        description:
+          "Predict the enemy jungler’s pathing and avoid dangerous map zones.",
+        difficulty: "intermediate",
+        questions: [
+          {
+            id: "jt-q1",
+            type: "multiple-choice",
+            scenario:
+              "The enemy jungler started on red buff and was seen pathing toward top side. It's now 3:10. Which lane is most likely in danger?",
+            options: [
+              { id: "a", text: "Top lane" },
+              { id: "b", text: "Bot lane" },
+              { id: "c", text: "No lane is in danger yet" },
+              { id: "d", text: "Only mid lane" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "A jungler pathing upward from red side is commonly looking for a top-side play around the early gank timing.",
+          },
+          {
+            id: "jt-q2",
+            type: "multiple-choice",
+            scenario:
+              "You are top lane with no ward, and the enemy jungler has not shown on the map for over a minute. Your wave is pushed far forward. What is the best play?",
+            options: [
+              { id: "a", text: "Keep pressuring hard for tower damage" },
+              { id: "b", text: "Back off until you know where the jungler is" },
+              { id: "c", text: "Fight the enemy top laner immediately" },
+              { id: "d", text: "Walk into the enemy jungle alone" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "If the jungler is missing and you are overextended without vision, you should assume you are vulnerable and back off.",
+          },
+          {
+            id: "jt-q3",
+            type: "spot-mistake",
+            scenario:
+              "Your mid laner sees the enemy jungler on a ward near raptors heading bot side. Despite this, your bot lane keeps trading aggressively with no flash and no river ward. They die to a gank 10 seconds later. What went wrong?",
+            options: [
+              { id: "a", text: "Bot lane ignored clear jungle information" },
+              { id: "b", text: "Mid lane should have recalled" },
+              { id: "c", text: "Support should have sold their ward item" },
+              { id: "d", text: "Top lane should have teleported bot" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Tracking the jungler only helps if your team respects the information. Continuing to play aggressively into a known gank path is the mistake.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -262,6 +376,123 @@ export const categories: Category[] = [
             correctAnswer: "b",
             explanation:
               "Never initiate a major fight without your key abilities. Cooldown tracking — knowing when your teammates' ultimates are up — is essential before committing to a fight.",
+          },
+        ],
+      },
+      {
+        id: "reset-timing",
+        title: "Reset Timing",
+        description:
+          "Learn when to recall, spend gold, and return to the map without losing tempo.",
+        difficulty: "beginner",
+        questions: [
+          {
+            id: "rt-q1",
+            type: "multiple-choice",
+            scenario:
+              "You push a full wave into the enemy tower and have 1300 gold. Dragon spawns in 90 seconds. What is the best play?",
+            options: [
+              { id: "a", text: "Recall, buy, and return with stronger items" },
+              { id: "b", text: "Stay for another random wave" },
+              { id: "c", text: "Walk into enemy jungle alone" },
+              { id: "d", text: "Stand in lane without spending gold" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "A clean wave crash is often the best reset timing. You spend your gold, recover resources, and can return in time for the objective.",
+          },
+          {
+            id: "rt-q2",
+            type: "multiple-choice",
+            scenario:
+              "You are low HP with 1600 unspent gold, but instead of recalling you stay for one more plate. The enemy jungler appears and kills you. What should you have done?",
+            options: [
+              { id: "a", text: "Kept hitting the tower faster" },
+              { id: "b", text: "Reset earlier and avoid the greedy play" },
+              { id: "c", text: "Sold an item in lane" },
+              { id: "d", text: "Pinged your support to tank tower" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "Greedy overstays lose tempo. Recalling safely with gold is often stronger than risking death for extra tower damage.",
+          },
+          {
+            id: "rt-q3",
+            type: "spot-mistake",
+            scenario:
+              "A top laner recalls instantly without pushing the wave first. The enemy freezes near their tower, and the top laner loses an entire wave walking back. What was the mistake?",
+            options: [
+              {
+                id: "a",
+                text: "They reset without fixing the wave state first",
+              },
+              { id: "b", text: "They needed boots earlier" },
+              { id: "c", text: "They should have switched lanes" },
+              { id: "d", text: "They should have taken Baron" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Reset timing is tied to wave control. Recalling without pushing can give the enemy a freeze and cost you gold and experience.",
+          },
+        ],
+      },
+      {
+        id: "side-lane-pressure",
+        title: "Side Lane Pressure",
+        description:
+          "Understand when to split push, group, or rotate based on map state.",
+        difficulty: "intermediate",
+        questions: [
+          {
+            id: "slp-q1",
+            type: "multiple-choice",
+            scenario:
+              "You are playing a strong duelist with Teleport, and Baron is alive. Your team can safely hold mid 4v4. What is usually the best setup?",
+            options: [
+              { id: "a", text: "Push a side lane and keep TP available" },
+              { id: "b", text: "AFK with the team mid permanently" },
+              { id: "c", text: "Recall every 30 seconds" },
+              { id: "d", text: "Ignore all side waves" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "A strong side laner creates pressure by forcing responses. With Teleport, you can pressure a side lane and still join a major fight.",
+          },
+          {
+            id: "slp-q2",
+            type: "multiple-choice",
+            scenario:
+              "Three enemies are missing on the map, and you are split pushing bot lane with no vision in the jungle. What is the best decision?",
+            options: [
+              { id: "a", text: "Keep pushing to inhibitor no matter what" },
+              { id: "b", text: "Back off until enemy positions are known" },
+              {
+                id: "c",
+                text: "Fight whoever comes alone and ignore the rest",
+              },
+              { id: "d", text: "Stand still in the lane bush" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "Side lane pressure only works when it is controlled. If multiple enemies are missing and you have no vision, you are likely about to be collapsed on.",
+          },
+          {
+            id: "slp-q3",
+            type: "spot-mistake",
+            scenario:
+              "Your team is grouped mid doing nothing while a huge side wave is crashing into the enemy bot tower. No one rotates, and your team loses that free pressure window. What was the mistake?",
+            options: [
+              {
+                id: "a",
+                text: "Your team ignored a valuable side lane pressure opportunity",
+              },
+              { id: "b", text: "Your support bought the wrong ward item" },
+              { id: "c", text: "Your jungler needed more CS" },
+              { id: "d", text: "Your ADC should have sold boots" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Good decision making includes converting side waves into map pressure. Ignoring free side lane value wastes tempo and objective opportunities.",
           },
         ],
       },
@@ -402,6 +633,126 @@ export const categories: Category[] = [
             correctAnswer: "b",
             explanation:
               "Mana is a resource that must be managed carefully. Using full rotations on minions leaves you with nothing to trade with. Last-hitting with autos and using abilities sparingly preserves mana for fights.",
+          },
+        ],
+      },
+      {
+        id: "positioning-basics",
+        title: "Positioning Basics",
+        description:
+          "Learn where to stand in fights depending on your role and champion type.",
+        difficulty: "beginner",
+        questions: [
+          {
+            id: "pb-q1",
+            type: "multiple-choice",
+            scenario:
+              "You are playing ADC in a 5v5 teamfight. The enemy Malphite is looking for an engage. Where should you position?",
+            options: [
+              { id: "a", text: "In front of your tank line" },
+              {
+                id: "b",
+                text: "Behind your frontline while keeping safe attack range",
+              },
+              { id: "c", text: "Inside the enemy backline immediately" },
+              { id: "d", text: "Alone in the river brush" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "As an ADC, your job is to deal damage while staying alive. Positioning behind your frontline reduces the risk of getting instantly engaged on.",
+          },
+          {
+            id: "pb-q2",
+            type: "multiple-choice",
+            scenario:
+              "You are playing a control mage and your tank has already started the fight. What is the best positioning choice?",
+            options: [
+              { id: "a", text: "Follow behind your tank and cast from safety" },
+              { id: "b", text: "Dive into melee range for no reason" },
+              { id: "c", text: "Walk around the map edge away from the fight" },
+              { id: "d", text: "Stand next to the enemy bruiser" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Most mages want to stay at a safe distance and cast spells while their frontline absorbs pressure.",
+          },
+          {
+            id: "pb-q3",
+            type: "spot-mistake",
+            scenario:
+              "An ADC walks into the front of the fight to auto attack the enemy tank one extra time. They instantly get crowd controlled and die before dealing meaningful damage. What was the mistake?",
+            options: [
+              {
+                id: "a",
+                text: "They were too aggressive with their positioning",
+              },
+              { id: "b", text: "They should have built more lifesteal" },
+              { id: "c", text: "They needed a different skin" },
+              { id: "d", text: "They should have farmed jungle instead" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Good mechanics are not only about buttons. Poor positioning can lose a fight even if your champion is mechanically simple.",
+          },
+        ],
+      },
+      {
+        id: "cooldown-awareness",
+        title: "Cooldown Awareness",
+        description:
+          "Track key abilities and know when you can trade, all-in, or back off.",
+        difficulty: "intermediate",
+        questions: [
+          {
+            id: "ca-q1",
+            type: "multiple-choice",
+            scenario:
+              "The enemy Ahri just used Charm and missed. You are playing an aggressive mid champion. What is usually the best response?",
+            options: [
+              { id: "a", text: "Back away and do nothing" },
+              { id: "b", text: "Trade while her main defensive tool is down" },
+              { id: "c", text: "Recall instantly" },
+              { id: "d", text: "Stop farming for 30 seconds" },
+            ],
+            correctAnswer: "b",
+            explanation:
+              "When an important enemy cooldown is unavailable, that is often your window to trade or pressure them.",
+          },
+          {
+            id: "ca-q2",
+            type: "multiple-choice",
+            scenario:
+              "Your own dash ability is on cooldown, and the enemy jungler is missing. The lane is pushed up. What should you do?",
+            options: [
+              {
+                id: "a",
+                text: "Play safer until your escape is available again",
+              },
+              { id: "b", text: "Force a dive immediately" },
+              { id: "c", text: "Ignore the cooldown and keep overextending" },
+              { id: "d", text: "Sell your boots" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Your cooldowns matter just as much as the enemy's. If your escape tool is unavailable, your margin for error is much smaller.",
+          },
+          {
+            id: "ca-q3",
+            type: "spot-mistake",
+            scenario:
+              "A Renekton player dashes in for a trade right after using all abilities on the minion wave. The enemy top laner turns and wins the fight easily. What was the mistake?",
+            options: [
+              {
+                id: "a",
+                text: "They traded while their important cooldowns were unavailable",
+              },
+              { id: "b", text: "They should have switched to support" },
+              { id: "c", text: "They needed more magic resist" },
+              { id: "d", text: "They should have recalled at full HP" },
+            ],
+            correctAnswer: "a",
+            explanation:
+              "Cooldown awareness is core to mechanics. Taking a fight with no abilities ready removes your champion's main strengths.",
           },
         ],
       },

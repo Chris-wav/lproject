@@ -3,6 +3,7 @@ import { categories } from "../data/content";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import CategoryHero from "../components/CategoryHero";
+import LessonsCard from "../components/LessonsCard";
 
 export const Route = createFileRoute("/category/$id")({
   component: () => {
@@ -27,6 +28,18 @@ export const Route = createFileRoute("/category/$id")({
           description={category?.description}
           progress={Math.floor(Math.random() * 100) + 1}
         />
+        <div className="mt-5 px-4 flex flex-col items-center gap-2 justify-start">
+          <span className="font-display font-[800] text-2xl">Lessons</span>
+          <div className="flex flex-col items-start gap-2 justfy-start">
+            {category?.lessons.map((lesson, index) => (
+              <Link to="/quiz/$id" params={{ id: lesson.id }}>
+                <div key={lesson.id}>
+                  <LessonsCard lesson={lesson} index={index} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     );
   },

@@ -1,6 +1,7 @@
 import { Play } from "lucide-react";
 
 const ContinueLesson = () => {
+  
   return (
     <div className=" flex justify-between w-[90%] bg-[#1A1A2E] rounded-[20px] h-auto mx-auto mt-7 relative overflow-hidden">
       <div className="h-[75px] flex">
