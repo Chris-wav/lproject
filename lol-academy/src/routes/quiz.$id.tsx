@@ -6,6 +6,7 @@ import OptionCard from "../components/OptionCard";
 import { ArrowRight } from "lucide-react";
 import useQuiz from "../hooks/useQuiz";
 import QuizHeader from "../components/QuizHeader";
+import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/quiz/$id")({
   component: QuizPage,
@@ -16,6 +17,7 @@ function QuizPage() {
   const category = categories.find((c) => c.lessons.some((l) => l.id === id));
   const lesson = categories.flatMap((c) => c.lessons).find((l) => l.id === id);
 
+  const navigate = useNavigate();
   const {
     currentQuestionIndex,
     selectedOption,
@@ -24,10 +26,23 @@ function QuizPage() {
     handleAnswer,
     handleContinue,
     hasAnswered,
+    answers,
   } = useQuiz(lesson?.questions ?? []);
 
   if (!lesson) {
     return <div>Lesson not found</div>;
+  }
+  const correct = answers.filter(
+    (answer, index) => answer === lesson.questions[index].correctAnswer,
+  ).length;
+
+  if (currentQuestionIndex >= lesson.questions.length) {
+    navigate({
+      to: "/results/$id",
+      params: { id: lesson.id },
+      search: { score: correct, total: lesson.questions.length },
+    });
+    return null;
   }
 
   return (

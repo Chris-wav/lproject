@@ -32,6 +32,7 @@ const useQuiz = (questions: Question[]) => {
     isAnswerCorrect,
     lives,
     hasAnswered,
+    answers,
     handleAnswer,
     handleContinue,
   };
