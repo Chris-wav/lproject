@@ -16,7 +16,7 @@ function RouteComponent() {
     <div className="flex flex-col items-start gap-5 w-full mt-5 ">
       <h1 className="text-5xl font-display pl-6">Profile</h1>
       <SummonerCard />
-      <div className="mt-5 grid grid-cols-3 gap-3 w-[90%] mx-auto">
+      <div className="mt-1 grid grid-cols-3 gap-3 w-[90%] mx-auto">
         {stats.map((stat, index) => (
           <MilestoneCard
             key={index}
