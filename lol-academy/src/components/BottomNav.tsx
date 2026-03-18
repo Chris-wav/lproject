@@ -1,7 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-
+import { useLocation } from "@tanstack/react-router";
 const BottomNav = () => {
+  const { pathname } = useLocation();
   const { location } = useRouterState();
+  const hideBottomBar = pathname === "/login" || pathname === "/register";
+  if (hideBottomBar) return null;
 
   const tabs = [
     { to: "/", icon: "🏠", label: "Home" },

@@ -1,4 +1,3 @@
-import React from "react";
 interface AchievementCardProps {
   icon: string;
   title: string;
