@@ -27,3 +27,9 @@ export interface Category {
   icon: string;
   description: string;
 }
+
+export interface AIQuestion {
+  question: string;
+  options: string[];
+  correct: number;
+}

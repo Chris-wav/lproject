@@ -9,7 +9,7 @@ interface Props {
 const CategoriesLearn = ({ category, progress }: Props) => {
   return (
     <Link to="/category/$id" params={{ id: category.id }}>
-      <div className="flex items-center justify-between bg-white rounded-2xl px-4 py-3 shadow-sm w-[98%] ">
+      <div className="flex items-center justify-between bg-white rounded-2xl px-4 py-3 ml-1 shadow-sm w-[98%] ">
         <div className="bg-cyan-100 rounded-xl w-12 h-12 flex items-center justify-center text-2xl shrink-0">
           {category.icon}
         </div>

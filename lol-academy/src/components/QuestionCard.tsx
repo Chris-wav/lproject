@@ -1,4 +1,3 @@
-import { ArrowLeft } from "lucide-react";
 import type { Question } from "../types/types";
 interface QuestionCardProps {
   question: Question;
