@@ -3,6 +3,7 @@ import SummonerCard from "../components/SummonerCard";
 import MilestoneCard from "../components/MilestoneCard";
 import AchievementCard from "../components/AchievementCard";
 import CompletedLessonCard from "../components/CompletedLessonCard";
+import { logOut } from "../lib/auth";
 
 export const Route = createFileRoute("/profile")({
   component: RouteComponent,
@@ -72,7 +73,17 @@ function RouteComponent() {
   ];
   return (
     <div className="flex flex-col items-start gap-5 w-full mt-5 ">
-      <h1 className="text-5xl font-display pl-6">Profile</h1>
+      <div className="flex justify-between items-center w-full px-5">
+        <h1 className="text-5xl font-display pl-6">Profile</h1>
+        <button
+          className="w-full bg-[#2C2A3A] text-white font-black text-sm p-3 rounded-xl"
+          onClick={logOut}
+        >
+          {" "}
+          <span className="text-lg">logout</span>
+        </button>
+      </div>
+
       <SummonerCard />
       <div className="mt-1 grid grid-cols-3 gap-3 w-[90%] mx-auto">
         {stats.map((stat, index) => (

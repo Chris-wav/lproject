@@ -1,4 +1,7 @@
+import { useAuth } from "../context/AuthContext";
+
 const Level = () => {
+  const { profile } = useAuth();
   return (
     <div className="flex flex-col items-center gap-4 mt-10 relative">
       <svg width="90" height="90" viewBox="0 0 16 16">
@@ -31,10 +34,10 @@ const Level = () => {
       <div className="mx-4 mt-4 w-[86%] bg-white rounded-2xl px-4 py-3 flex flex-col gap-2 shadow-sm">
         <div className="flex justify-between w-full">
           <h2 className="text-[10px] font-[700] tracking-widest text-gray-400">
-            SUMMONER LEVEL 12
+            SUMMONER LEVEL{profile?.xp}
           </h2>
           <span className="text-[10px] font-[700] text-yellow-500">
-            620 / 1000 XP
+            {profile?.xp } / 1000 XP
           </span>
         </div>
         <div className="w-full bg-gray-100 rounded-full h-2">

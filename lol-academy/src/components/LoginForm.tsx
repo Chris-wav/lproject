@@ -5,14 +5,18 @@ import { useNavigate } from "@tanstack/react-router";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState<string | null>(null);
   const navigate = useNavigate();
-
+  const [error, setError] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("submitting", { email, password });
-    await signIn({ email, password });
-    navigate({ to: "/" });
+    try {
+      const result = await signIn({ email, password });
+      navigate({ to: "/" });
+    } catch (error) {
+      setError("Wrong email or password!");
+    }
   };
 
   return (
@@ -42,6 +46,7 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="bg-white border-2 border-[#2C2A3A] rounded-xl px-4 py-3 text-[15px] font-bold text-[#2C2A3A] placeholder:text-gray-300 focus:outline-none focus:border-[#1DB87A]"
           />
+          {error && <p className="text-red-500 text-sm font-bold">{error}</p>}
         </div>
 
         <span className="text-right text-xs text-[#1DB87A] font-black cursor-pointer">
