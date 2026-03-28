@@ -40,6 +40,7 @@ router.post("/quiz", async (req, res) => {
       "question": "...",
       "options": ["A", "B", "C", "D"],
       "correct": 0
+      "explanation" "..."
     }
   ]
 `;

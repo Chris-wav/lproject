@@ -3,14 +3,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import supabase from "../lib/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "../services/profile";
-interface Profile {
-  id: string;
-  username: string;
-  xp: number;
-  streak: number;
-  last_played: string | null;
-  avatar: string | null;
-}
+import type { Profile } from "../types/types";
+
 interface AuthContextType {
   user: User | null;
   isLoggedIn: boolean;

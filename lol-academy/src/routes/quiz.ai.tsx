@@ -2,6 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useQuizContext } from "../context/QuizContext";
 import AIQuestionCard from "../components/AIQuestionCard";
+import { useGameContext } from "../context/GameContext";
+import LivesModal from "../components/LivesModal";
 
 export const Route = createFileRoute("/quiz/ai")({
   component: RouteComponent,
@@ -9,23 +11,27 @@ export const Route = createFileRoute("/quiz/ai")({
 
 function RouteComponent() {
   const navigate = useNavigate();
+  let isCorrect = false;
+  const { submitAnswer, lives } = useGameContext();
   const { questions } = useQuizContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
+  useEffect(() => {
+    if (questions && currentIndex > questions.length - 1) {
+      navigate({ to: "/quiz/results" });
+    }
+  }, [currentIndex, questions]);
   if (!questions || questions.length === 0) return null;
-  if (currentIndex > questions.length - 1) {
-    useEffect(() => {
-      navigate({ to: "/results/$id" });
-    }, []);
-    return null;
-  }
+
   const currentQuestion = questions[currentIndex];
 
   const handleAnswer = (index: number) => {
     setSelectedAnswer(index);
+    const isCorrect = index === currentQuestion.correct;
+    submitAnswer(isCorrect);
   };
-
+  if (lives === 0) return <LivesModal />;
   return (
     <div className="flex flex-col h-screen bg-[#EDEAE3]">
       <AIQuestionCard

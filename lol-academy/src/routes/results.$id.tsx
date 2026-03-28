@@ -4,6 +4,8 @@ import { categories } from "../data/content";
 import XpCardResults from "../components/XpCardResults";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useGameContext } from "../context/GameContext";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/results/$id")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -14,11 +16,15 @@ export const Route = createFileRoute("/results/$id")({
 });
 
 function RouteComponent() {
+  const { completeLesson } = useGameContext();
   const { score, total } = Route.useSearch();
   const { id } = Route.useParams();
 
   const lesson = categories.flatMap((c) => c.lessons).find((l) => l.id === id);
   const category = categories.find((c) => c.lessons.some((l) => l.id === id));
+  useEffect(() => {
+    completeLesson(id);
+  }, [completeLesson]);
   return (
     <div>
       <ResultsHeader
@@ -27,7 +33,7 @@ function RouteComponent() {
         lessonTitle={lesson?.title ?? "Unknown Lesson"}
         lessonDifficulty={lesson?.difficulty ?? "beginner"}
       />
-      <XpCardResults />
+      <XpCardResults score={score} />
       <div className="items-center flex flex-col mt-5">
         <hr className="border-0 h-px bg-[#1E4E5A] mt-4 w-[350px] opacity-50" />
         <Link
