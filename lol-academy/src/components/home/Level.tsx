@@ -1,4 +1,4 @@
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 const Level = () => {
   const { profile } = useAuth();
@@ -37,7 +37,7 @@ const Level = () => {
             SUMMONER LEVEL{profile?.xp}
           </h2>
           <span className="text-[10px] font-[700] text-yellow-500">
-            {profile?.xp } / 1000 XP
+            {profile?.xp} / 1000 XP
           </span>
         </div>
         <div className="w-full bg-gray-100 rounded-full h-2">

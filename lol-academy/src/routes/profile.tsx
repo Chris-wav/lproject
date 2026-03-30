@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import SummonerCard from "../components/SummonerCard";
-import MilestoneCard from "../components/MilestoneCard";
-import AchievementCard from "../components/AchievementCard";
-import CompletedLessonCard from "../components/CompletedLessonCard";
+import SummonerCard from "../components/profile/SummonerCard";
+import MilestoneCard from "../components/profile/MilestoneCard";
+import AchievementCard from "../components/profile/AchievementCard";
+import CompletedLessonCard from "../components/learn/CompletedLessonCard";
 import { logOut } from "../lib/auth";
 import { useGameContext } from "../context/GameContext";
 import { categories } from "../data/content";

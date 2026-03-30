@@ -1,11 +1,7 @@
-import { YasuoPixel } from "../pixelArt/YasuoPixel";
-import { VaynePixel } from "../pixelArt/VaynePixel";
-import { ViPixel } from "../pixelArt/ViPixel";
-import { ZedPixel } from "../pixelArt/ZedPixel";
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getTagline } from "../services/api";
-import { pixelChampions } from "../pixelArt/pixelChampions";
+import { getTagline } from "../../services/api";
+import { pixelChampions } from "../../pixelArt/pixelChampions";
 const LoginHeader = () => {
   const index = useMemo(() => {
     const index = Math.floor(Math.random() * pixelChampions.length);

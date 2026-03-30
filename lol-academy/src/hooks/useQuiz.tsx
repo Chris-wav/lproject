@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Question } from "../types/types";
+import { useGameContext } from "../context/GameContext";
 
 const useQuiz = (questions: Question[]) => {
+  const { lives, submitAnswer } = useGameContext();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
-  const [lives, setLives] = useState(3);
+
   const [answers, setAnswers] = useState<string[]>([]);
   const [hasAnswered, setHasAnswered] = useState(false);
   const handleAnswer = (id: string) => {
+    if (hasAnswered) return;
     setHasAnswered(true);
     setSelectedOption(id);
-    if (id === questions[currentQuestionIndex].correctAnswer) {
-      setIsAnswerCorrect(true);
-    } else {
-      setIsAnswerCorrect(false);
-      setLives((prev) => prev - 1);
-    }
+    const isCorrect = id === questions[currentQuestionIndex].correctAnswer;
+    setIsAnswerCorrect(isCorrect);
+    submitAnswer(isCorrect);
   };
 
   const handleContinue = () => {

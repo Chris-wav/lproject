@@ -1,15 +1,19 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+
+const MAX_LIVES = 5;
+
 interface QuizHeaderProps {
   index: number;
   totalQuestions: number;
   lives: number;
 }
+
 const QuizHeader = ({ index, totalQuestions, lives }: QuizHeaderProps) => {
   return (
     <div className="flex justify-between items-center mb-4 w-[91%]">
       <Link to="/">
-        <button className="flex items-center gap-1 text-black bg-white p-10px h-[40px] w-[40px] font-body rounded-2xl justify-center">
+        <button className="flex items-center gap-1 text-black bg-white h-[40px] w-[40px] font-body rounded-2xl justify-center">
           <ArrowLeft />
         </button>
       </Link>
@@ -25,11 +29,9 @@ const QuizHeader = ({ index, totalQuestions, lives }: QuizHeaderProps) => {
         </div>
       </div>
       <div>
-        {Array.from({ length: 3 }).map((_, i) => (
-          <span key={i} className={i < lives ? "" : "opacity-30"}>
-            ❤️
-          </span>
-        ))}{" "}
+        {Array.from({ length: MAX_LIVES }).map((_, i) => (
+          <span key={i} className={i < lives ? "" : "opacity-30"}>❤️</span>
+        ))}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import QuestionCard from "../components/QuestionCard";
+import QuestionCard from "../components/quiz/QuestionCard";
 import type { Option, Question } from "../types/types";
 import { categories } from "../data/content";
-import OptionCard from "../components/OptionCard";
+import OptionCard from "../components/quiz/OptionCard";
 import { ArrowRight } from "lucide-react";
 import useQuiz from "../hooks/useQuiz";
-import QuizHeader from "../components/QuizHeader";
+import QuizHeader from "../components/quiz/QuizHeader";
 import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/quiz/$id")({
@@ -59,7 +59,7 @@ function QuizPage() {
       />
       {lesson.questions[currentQuestionIndex].options.map((option, index) => (
         <div
-          className=" w-[91%] ml-[15px] "
+          className="w-[91%] ml-[15px]"
           key={index}
           onClick={() => handleAnswer(option.id)}
         >

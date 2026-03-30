@@ -1,4 +1,4 @@
-import { useGameContext } from "../context/GameContext";
+import { useGameContext } from "../../context/GameContext";
 
 interface XpCardResultsProps {
   score: number;
@@ -14,16 +14,11 @@ const XpCardResults = ({ score }: XpCardResultsProps) => {
       <span className="font-display text-4xl">⭐</span>
       <div className="flex flex-col">
         <span className="font-display font-lg text-gray-400">XP Earned:</span>
-        <span className="font-display font-xl text-amber-500">
-          +{score * 10} XP
-        </span>
+        <span className="font-display font-xl text-amber-500">+{score * 10} XP</span>
       </div>
       <div className="w-[57px] h-[8px] rounded-full bg-zinc-600 overflow-hidden">
         <div className="flex h-full items-center">
-          <div
-            className="h-full rounded-full bg-amber-500"
-            style={{ width: `${barWidth}%` }}
-          />
+          <div className="h-full rounded-full bg-amber-500" style={{ width: `${barWidth}%` }} />
         </div>
       </div>
     </div>

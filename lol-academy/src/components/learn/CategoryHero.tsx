@@ -1,4 +1,4 @@
-import type { Lesson } from "../types/types";
+import type { Lesson } from "../../types/types";
 
 interface Props {
   title: string;

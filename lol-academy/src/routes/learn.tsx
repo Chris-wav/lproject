@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import TopBarLearnPage from "../components/TopBarLearnPage";
+import TopBarLearnPage from "../components/learn/TopBarLearnPage";
 import { categories } from "../data/content";
-import CategoriesLearn from "../components/CategoriesLearnPage";
-import AiTrainCard from "../components/AiTrainCard";
+import CategoriesLearn from "../components/learn/CategoriesLearnPage";
+import AiTrainCard from "../components/quiz/AiTrainCard";
 import { useGameContext } from "../context/GameContext";
 import type { Category } from "../types/types";
 

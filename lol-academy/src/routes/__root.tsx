@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute, useNavigate } from "@tanstack/react-router";
-import BottomNav from "../components/BottomNav";
+import BottomNav from "../components/shared/BottomNav";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 

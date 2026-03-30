@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ResultsHeader from "../components/ResultsHeader";
+import ResultsHeader from "../components/results/ResultsHeader";
 import { categories } from "../data/content";
-import XpCardResults from "../components/XpCardResults";
+import XpCardResults from "../components/results/XpCardResults";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useGameContext } from "../context/GameContext";
@@ -22,9 +22,11 @@ function RouteComponent() {
 
   const lesson = categories.flatMap((c) => c.lessons).find((l) => l.id === id);
   const category = categories.find((c) => c.lessons.some((l) => l.id === id));
+
   useEffect(() => {
     completeLesson(id);
   }, [completeLesson]);
+
   return (
     <div>
       <ResultsHeader
@@ -39,7 +41,7 @@ function RouteComponent() {
         <Link
           to="/category/$id"
           params={{ id: category?.id ?? "" }}
-          className="w-[91%] rounded-[8px] bg-[#0BC6E2]  text-[10px] font-semibold leading-none mt-5 mx-auto"
+          className="w-[91%] rounded-[8px] bg-[#0BC6E2] text-[10px] font-semibold leading-none mt-5 mx-auto"
         >
           <button className="w-[100%] h-[45px] flex items-center justify-center text-white">
             <span className="font-display text-lg">Continue</span>

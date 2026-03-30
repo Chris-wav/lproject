@@ -10,10 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as RanksRouteImport } from './routes/ranks'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LearnRouteImport } from './routes/learn'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResultsAiRouteImport } from './routes/results.ai'
 import { Route as ResultsIdRouteImport } from './routes/results.$id'
 import { Route as QuizAiRouteImport } from './routes/quiz.ai'
 import { Route as QuizIdRouteImport } from './routes/quiz.$id'
@@ -22,6 +24,11 @@ import { Route as CategoryIdRouteImport } from './routes/category.$id'
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RanksRoute = RanksRouteImport.update({
+  id: '/ranks',
+  path: '/ranks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
@@ -42,6 +49,11 @@ const LearnRoute = LearnRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsAiRoute = ResultsAiRouteImport.update({
+  id: '/results/ai',
+  path: '/results/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResultsIdRoute = ResultsIdRouteImport.update({
@@ -70,22 +82,26 @@ export interface FileRoutesByFullPath {
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/ranks': typeof RanksRoute
   '/register': typeof RegisterRoute
   '/category/$id': typeof CategoryIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/quiz/ai': typeof QuizAiRoute
   '/results/$id': typeof ResultsIdRoute
+  '/results/ai': typeof ResultsAiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/ranks': typeof RanksRoute
   '/register': typeof RegisterRoute
   '/category/$id': typeof CategoryIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/quiz/ai': typeof QuizAiRoute
   '/results/$id': typeof ResultsIdRoute
+  '/results/ai': typeof ResultsAiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -93,11 +109,13 @@ export interface FileRoutesById {
   '/learn': typeof LearnRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/ranks': typeof RanksRoute
   '/register': typeof RegisterRoute
   '/category/$id': typeof CategoryIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/quiz/ai': typeof QuizAiRoute
   '/results/$id': typeof ResultsIdRoute
+  '/results/ai': typeof ResultsAiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -106,33 +124,39 @@ export interface FileRouteTypes {
     | '/learn'
     | '/login'
     | '/profile'
+    | '/ranks'
     | '/register'
     | '/category/$id'
     | '/quiz/$id'
     | '/quiz/ai'
     | '/results/$id'
+    | '/results/ai'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/learn'
     | '/login'
     | '/profile'
+    | '/ranks'
     | '/register'
     | '/category/$id'
     | '/quiz/$id'
     | '/quiz/ai'
     | '/results/$id'
+    | '/results/ai'
   id:
     | '__root__'
     | '/'
     | '/learn'
     | '/login'
     | '/profile'
+    | '/ranks'
     | '/register'
     | '/category/$id'
     | '/quiz/$id'
     | '/quiz/ai'
     | '/results/$id'
+    | '/results/ai'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -140,11 +164,13 @@ export interface RootRouteChildren {
   LearnRoute: typeof LearnRoute
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
+  RanksRoute: typeof RanksRoute
   RegisterRoute: typeof RegisterRoute
   CategoryIdRoute: typeof CategoryIdRoute
   QuizIdRoute: typeof QuizIdRoute
   QuizAiRoute: typeof QuizAiRoute
   ResultsIdRoute: typeof ResultsIdRoute
+  ResultsAiRoute: typeof ResultsAiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -154,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ranks': {
+      id: '/ranks'
+      path: '/ranks'
+      fullPath: '/ranks'
+      preLoaderRoute: typeof RanksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -182,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results/ai': {
+      id: '/results/ai'
+      path: '/results/ai'
+      fullPath: '/results/ai'
+      preLoaderRoute: typeof ResultsAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/results/$id': {
@@ -220,11 +260,13 @@ const rootRouteChildren: RootRouteChildren = {
   LearnRoute: LearnRoute,
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
+  RanksRoute: RanksRoute,
   RegisterRoute: RegisterRoute,
   CategoryIdRoute: CategoryIdRoute,
   QuizIdRoute: QuizIdRoute,
   QuizAiRoute: QuizAiRoute,
   ResultsIdRoute: ResultsIdRoute,
+  ResultsAiRoute: ResultsAiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

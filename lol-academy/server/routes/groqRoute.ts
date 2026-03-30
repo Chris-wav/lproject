@@ -20,7 +20,7 @@ No motivational speech. No cringe. Pure character. Think Twitter roast.`;
     });
     const text = content.choices[0].message.content!;
     res.json({ tagline: text });
-  } catch (error) {
+  } catch (e) {
     res.status(500).json({ error: "Failed to edge the user" });
   }
 });
@@ -58,6 +58,52 @@ router.post("/quiz", async (req, res) => {
     console.log(error);
 
     res.status(500).json({ error: "Failed to generate quiz" });
+  }
+});
+
+router.post("/feedback", async (req, res) => {
+  try {
+    const { questions, userAnswers, champion, topic, difficulty } = req.body;
+
+    // Κατασκευή score/total/wrongQuestions από τα raw data
+    const score = questions.filter(
+      (q: any, i: number) => q.correct === userAnswers[i],
+    ).length;
+    const total = questions.length;
+    const wrongQuestions = questions
+      .map((q: any, i: number) => ({ ...q, userAnswer: userAnswers[i] }))
+      .filter((q: any) => q.userAnswer !== q.correct);
+
+    const prompt = `You are a League of Legends coach. A player just completed a quiz.
+
+Champion: ${champion}
+Topic: ${topic}
+Difficulty: ${difficulty}
+Score: ${score}/${total}
+
+${
+  wrongQuestions.length > 0
+    ? `Questions they got wrong:\n${wrongQuestions
+        .map(
+          (q: any) =>
+            `- "${q.question}"\n  Correct answer: "${q.options[q.correct]}"\n  They answered: "${q.options[q.userAnswer]}"`,
+        )
+        .join("\n")}`
+    : "They got everything correct!"
+}
+
+Give a short, encouraging coaching tip (2-3 sentences max). Be specific about what they got wrong if anything. Use a friendly, hype tone like a real LoL coach. Do not use markdown formatting.`;
+
+    const content = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const feedback = content.choices[0].message.content!;
+    res.json({ feedback });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Failed to generate feedback" });
   }
 });
 
