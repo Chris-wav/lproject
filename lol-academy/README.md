@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+🎮 LOL Academy
+<img width="354" height="615" alt="image" src="https://github.com/user-attachments/assets/8ccdd2a1-9c6f-4cbf-bb58-1c16bf3e583b" />
+<img width="359" height="629" alt="image" src="https://github.com/user-attachments/assets/04453835-ad96-43a1-bc32-b2e6179d3dec" />
+<img width="356" height="626" alt="image" src="https://github.com/user-attachments/assets/75c381e0-197d-4b42-bfb8-696b9c60bd57" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+Learn League of Legends — the Duolingo way.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+LOL Academy is a gamified learning app that teaches League of Legends concepts through interactive lessons, quizzes, and AI-powered feedback. Built as an MVP for a hackathon, it combines modern web technologies with a fun, mobile-first experience.
 
-## Expanding the ESLint configuration
+✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Lesson System — Structured lessons covering champions, roles, mechanics, and strategy
+Quiz Mode — Multiple-choice quizzes with instant feedback
+AI Quiz — Dynamic AI-generated questions powered by Groq
+XP & Streak System — Earn XP and maintain daily streaks to climb the ranks
+Lives System — Limited lives per session keep the stakes real
+Leaderboard — Compete with other players for the top spot
+User Profiles — Track your progress, XP, and completed lessons
+Authentication — Secure sign up / login via Supabase Auth
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🛠️ Tech Stack
+LayerTechnologyFrontendReact 19 + TypeScript + ViteRoutingTanStack RouterState / DataTanStack Query + AxiosStylingTailwind CSS v4BackendExpress.js + TypeScriptDatabase & AuthSupabase (PostgreSQL + Auth)AIGroq API
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🚀 Getting Started
+Prerequisites
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Node.js 18+
+A Supabase project
+A Groq API key
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Frontend
+bash# From the project root
+npm install
+npm run dev
+Backend
+bashcd server
+npm install
+npm run dev
+Environment Variables
+Create a .env file in the root and in /server:
+Root .env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_API_URL=http://localhost:3000
+server/.env
+GROQ_API_KEY=your_groq_api_key
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📁 Project Structure
+lol-academy/
+├── src/
+│   ├── components/       # Reusable UI components
+│   │   ├── auth/
+│   │   ├── learn/
+│   │   ├── profile/
+│   │   ├── quiz/
+│   │   └── shared/
+│   ├── context/          # Auth context
+│   ├── routes/           # TanStack Router pages
+│   ├── services/         # API & Supabase calls
+│   └── types/            # TypeScript types
+└── server/
+    ├── routes/           # Express API routes
+    └── index.ts          # Server entry point
+
+🏆 Hackathon MVP
+This project was built as an MVP for a hackathon with a mid-April 2026 deadline. Core focus areas:
+
+Mobile-first UI
+AI-powered quiz generation
+Gamification (XP, streaks, lives, leaderboard)
+Full-stack architecture with real authentication
