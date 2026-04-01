@@ -13,7 +13,6 @@ function RouteComponent() {
     <>
       <TopBar />
       <Level />
-      <ContinueLesson />
       <Categories />
     </>
   );

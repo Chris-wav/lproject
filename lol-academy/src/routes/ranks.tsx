@@ -4,11 +4,9 @@ import { getLeaderboard } from "../services/leaderboard";
 import { useAuth } from "../context/AuthContext";
 import PodiumCard from "../components/shared/PodiumCard";
 
-
 export const Route = createFileRoute("/ranks")({
   component: RouteComponent,
 });
-
 
 function RouteComponent() {
   const { user } = useAuth();
@@ -22,18 +20,30 @@ function RouteComponent() {
       <h1 className="text-5xl font-display pl-2">Ranks</h1>
 
       {/* Top 3 podium */}
-      {!isLoading && players && players.length >= 3 && (
+      {!isLoading && players && players.length >= 1 && (
         <div className="flex items-end justify-center gap-3 mt-2 mb-2">
           {/* 2nd */}
-          <PodiumCard player={players[1]} rank={2} isMe={players[1].id === user?.id} />
+          <PodiumCard
+            player={players[1]}
+            rank={2}
+            isMe={players[1].id === user?.id}
+          />
           {/* 1st */}
-          <PodiumCard player={players[0]} rank={1} isMe={players[0].id === user?.id} tall />
+          <PodiumCard
+            player={players[0]}
+            rank={1}
+            isMe={players[0].id === user?.id}
+            tall
+          />
           {/* 3rd */}
-          <PodiumCard player={players[2]} rank={3} isMe={players[2].id === user?.id} />
+          <PodiumCard
+            player={players[2]}
+            rank={3}
+            isMe={players[2].id === user?.id}
+          />
         </div>
       )}
 
-      {/* Rest of the list */}
       {isLoading ? (
         <div className="flex justify-center mt-10">
           <span className="text-gray-400 font-body">Loading...</span>
@@ -52,7 +62,9 @@ function RouteComponent() {
                 {player.avatar ?? "🎮"}
               </div>
               <div className="flex-1">
-                <p className={`font-display font-bold text-sm ${player.id === user?.id ? "text-[#0BC4E3]" : "text-[#1A1A2E]"}`}>
+                <p
+                  className={`font-display font-bold text-sm ${player.id === user?.id ? "text-[#0BC4E3]" : "text-[#1A1A2E]"}`}
+                >
                   {player.username}
                   {player.id === user?.id && " (You)"}
                 </p>
@@ -60,7 +72,9 @@ function RouteComponent() {
               </div>
               <div className="flex items-center gap-1">
                 <span className="text-xs">🔥</span>
-                <span className="text-xs font-bold text-gray-500">{player.streak}</span>
+                <span className="text-xs font-bold text-gray-500">
+                  {player.streak}
+                </span>
               </div>
             </div>
           ))}

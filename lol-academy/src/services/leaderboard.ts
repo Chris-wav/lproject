@@ -6,7 +6,8 @@ export const getLeaderboard = async () => {
     .select("id, username, xp, streak, correct_answers, avatar")
     .order("xp", { ascending: false })
     .limit(50);
-
+  console.log("LEADERBOARD data:", data);
+  console.log("LEADERBOARD error:", error);
   if (error) {
     console.error(error.message);
     throw new Error();

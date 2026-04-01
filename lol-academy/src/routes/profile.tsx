@@ -60,7 +60,7 @@ function RouteComponent() {
       <div className="flex justify-between items-center w-full px-5">
         <h1 className="text-5xl font-display pl-6">Profile</h1>
         <button
-          className="w-full bg-[#2C2A3A] text-white font-black text-sm p-3 rounded-xl"
+          className="w-30 bg-[#2C2A3A] text-white font-black text-sm p-1 rounded-xl"
           onClick={logOut}
         >
           <span className="text-lg">logout</span>
@@ -90,21 +90,6 @@ function RouteComponent() {
             description={achievement.description}
             bg={achievement.bg}
             locked={!achievement.unlocked}
-          />
-        ))}
-      </div>
-
-      <h1 className="text-3xl font-display pl-4">Completed lessons</h1>
-      <div className="mt-1 grid grid-cols-1 gap-3 w-[90%] mx-auto">
-        {completedLessons.map((lesson, index) => (
-          <CompletedLessonCard
-            key={index}
-            icon="📚"
-            title={lesson.title}
-            category={lesson.difficulty}
-            difficulty={lesson.difficulty}
-            score={0}
-            total={lesson.questions.length}
           />
         ))}
       </div>
